@@ -80,8 +80,8 @@ const { args: functionArgs } = decodeFunctionData({
 if (!functionArgs)
     throw new Error("No function arguments found, cannot decode order");
 
-const opaqueData = functionArgs[0];
-if (!opaqueData) throw new Error("Invalid args, cannot find anything");
+const decodedData = functionArgs[0];
+if (!decodedData) throw new Error("Invalid args, cannot find anything");
 
 // WAIT! This is unsafe; in a real production scenario, you should validate the data before using it.
 // `as` in TypeScript means that we're coercing the compiler to label `parsed` as a certain shape.
@@ -93,7 +93,7 @@ if (!opaqueData) throw new Error("Invalid args, cannot find anything");
 // If you want to build a working app in crypto, you need to invest time in correctly defining the object
 // you're working with or you'll get fucked later down the road and have to refactor. Do it now,
 // or die in pain later ehehehehe
-const order = opaqueData as MatchOrderArgs;
+const order = decodedData as MatchOrderArgs;
 
 console.debug("USER's ORDER", order);
 
