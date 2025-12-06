@@ -1,6 +1,6 @@
 # midwestern_workshop
 
-Get a RPC first to install dependencies:
+Get a RPC & install dependencies:
 
 ```bash
 bun install
